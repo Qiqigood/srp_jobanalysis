@@ -1,0 +1,35 @@
+2024年10月7日17:43:22
+之前的代码环境有问题，我复制了一份，但还是有点问题
+
+新增要求：
+1. 爬不同的招聘网站
+腾讯，文件导出后格式要控制一下，然后在有列表
+美团，
+小红书，
+华为
+
+#拼多多，招聘官网没什么信息，不爬了
+#字节，有CSRF的方爬虫机制
+
+
+2. 把不同的网站拼接到同一个网站上
+   这里很简单，就直接把老师的多页面拼接代码放到Multi-Pages.py文档中，然后把所有的页面放到pages中，就可以做到页面拼接了。
+   多页面运行终端输入  streamlit run .\Multi-Pages.py
+
+
+ 3. 爬美团
+ 我先爬这个https://zhaopin.meituan.com/web/position?hiringType=1_1,1_3,1_4，
+ 然后再进入到单个的框框页面中
+ https://zhaopin.meituan.com/web/position/detail?jobUnionId=2606333894&highlightType=campus
+ https://zhaopin.meituan.com/web/position/detail?jobUnionId=2606443511&highlightType=campus
+ https://zhaopin.meituan.com/web/position/detail?jobUnionId=2605666316&highlightType=campus
+ ……
+ 最后在从单个岗位页面中爬出我想要的数据，写入csv
+
+ 如果页面需要登录账号才可以使用的话，就要加载cookie
+
+ 如果页面源代码中就有想要的数据，网站是单个的，就直接bs4和xpath
+ 如果源代码中没有想要的数据，就说明这个网站是打开F12抓包工具然后再刷新页面一个个的看请求preview
+url=https://zhaopin.meituan.com/api/official/job/getJobList
+
+
