@@ -1,10 +1,10 @@
 import streamlit as st
-from pages import DA,TecentDa,ByteDanceDa
+from pages import DA,ByteDanceDa,HuaweiDa
 # 创建一个字典来映射页面标题到页面函数
 PAGES = {
     "拉勾网招聘信息": DA,
-    "腾讯招聘信息": TecentDa,
     "字节招聘信息": ByteDanceDa,
+    "华为招聘信息": HuaweiDa,
 
 }
 def main():
