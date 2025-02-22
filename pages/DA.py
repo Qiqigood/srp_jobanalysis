@@ -69,25 +69,13 @@ def load_show():  #定义函数load_show( )
 
 if __name__ == '__main__':
     #侧边栏布局
-    st.sidebar.text('数据爬取+存储:')
-    #数据爬取+保存
-    isClick_btn1 = st.sidebar.button(label='开始吧')
-    if isClick_btn1:
-        get_job_msg()
-
-    st.sidebar.text('数据加载+展示:')
-    #数据加载+展示
-    isClick_btn2 = st.sidebar.button(label='一键启动')
-    if isClick_btn2:
-        df = load_show()
-        # 折叠展示数据表格
-        with st.expander("岗位信息", expanded=True):
-            st.write(df)
+    df = load_show()
+    st.write(df)
 
     #侧边栏下拉框
     add_selectbox = st.sidebar.selectbox(
         label="数据分析:",
-        options=('请选择','不同城市岗位数量&平均薪资','不同经验的岗位占比','不同学历的岗位数量')
+        options=('请选择','不同城市岗位数量&平均薪资','不同经验的岗位占比')
     )
     #获取下拉选项
     if add_selectbox == '不同城市岗位数量&平均薪资':
@@ -143,5 +131,3 @@ if __name__ == '__main__':
 
         st_pyecharts(pie)
 
-    if add_selectbox == '不同学历的岗位数量':
-        st.write('兄弟们，自己玩起来吧！')
