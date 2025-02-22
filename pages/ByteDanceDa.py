@@ -28,7 +28,7 @@ if __name__=="__main__":
     #获取下拉选项
     if add_selectbox == '不同城市岗位数量&平均薪资':
         table = load_show()
-         def get_city_name(x):
+        def get_city_name(x):
             return x.split('·')[0].split('[')[1]
         table['city'] = table['地区'].map(get_city_name)
         #不同城市岗位数量
@@ -79,7 +79,7 @@ if __name__=="__main__":
 
         st_pyecharts(pie)
 
-    if add_selectbox == '岗位分类':
+    if add_selectbox == '不同城市岗位数量&平均薪资':
         # 你也可以自定义更多展示，比如过滤器等
         st.sidebar.header('数据分析')
 
