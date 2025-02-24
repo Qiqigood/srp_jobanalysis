@@ -196,6 +196,7 @@ if __name__ == "__main__":
             .set_global_opts(
                 title_opts=opts.TitleOpts(title="岗位类别占比"),
                 legend_opts=opts.LegendOpts(is_show=True),
+                toolbox_opts=opts.ToolboxOpts()  # 增加工具栏
             )
             .set_series_opts(label_opts=opts.LabelOpts(formatter="{b}: {d}%"))
         )

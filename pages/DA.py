@@ -95,19 +95,23 @@ if __name__ == '__main__':
         table['mean_sal'] = table['mean_sal']
         mean_sal_city = table.groupby(by='city')['mean_sal'].mean().sort_values(ascending=False)
         mean_sal_city = mean_sal_city.map(lambda x:format(x,'.2f'))
-        #绘制柱状图
+        # 绘制柱状图
         b = (
             Bar()
-                .add_xaxis(city_job_count_s.index.tolist())
-                .add_yaxis(
-                "岗位数量", city_job_count_s.values.tolist())
-                .add_yaxis(
-                "平均薪资", mean_sal_city.values.tolist())
-                .set_global_opts(
-                    title_opts=opts.TitleOpts(
-                        title="岗位分析", subtitle="不同城市的岗位数量&平均薪资"
-                    ),  # 工具栏
-                    toolbox_opts=opts.ToolboxOpts(),
+            .add_xaxis(city_job_count_s.index.tolist())
+            .add_yaxis("岗位数量", city_job_count_s.values.tolist())
+            .add_yaxis("平均薪资", mean_sal_city.values.tolist())
+            .set_global_opts(
+                title_opts=opts.TitleOpts(title="岗位分析", subtitle="不同城市的岗位数量&平均薪资"),  # 工具栏
+                xaxis_opts=opts.AxisOpts(
+                    name="工作地点",
+                    axislabel_opts=opts.LabelOpts(
+                        rotate=45,  # 旋转45度，避免中文和英文重叠
+                        font_size=12,  # 设置字体大小
+                        font_family="Microsoft YaHei"  # 强制使用支持中文的字体
+                    )
+                ),
+                toolbox_opts=opts.ToolboxOpts(),
             )
         )
         st_pyecharts(b)
