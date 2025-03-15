@@ -68,6 +68,7 @@ def load_show():  #定义函数load_show( )
     return df
 
 if __name__ == '__main__':
+    st.title('拉勾网招聘岗位分析')
     #侧边栏布局
     df = load_show()
     st.write(df)

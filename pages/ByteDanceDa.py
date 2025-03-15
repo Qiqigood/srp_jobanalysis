@@ -202,7 +202,7 @@ if __name__ == "__main__":
         )
 
         # 在 Streamlit 页面中显示图表
-        # 在标题和图表之间插入空行
+        #         # 在标题和图表之间插入空行
         st.markdown("<br><br>", unsafe_allow_html=True)
         st_pyecharts(pie)
         # 分类展示

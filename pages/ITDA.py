@@ -182,7 +182,6 @@ def plot_city_job_analysis(df):
     st_pyecharts(job_count_bar)
 
 if __name__ == "__main__":
-
     # 数据清洗：去除可能的空值或者多余空格
     df = load_show()
     # 设置页面标题
