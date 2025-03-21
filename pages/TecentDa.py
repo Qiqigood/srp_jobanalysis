@@ -69,6 +69,7 @@ if __name__ == '__main__':
     st.sidebar.text('数据加载+展示:')
     isClick_btn2 = st.sidebar.button(label='展示数据')
     if isClick_btn2:
+        st.title("腾讯招聘岗位分析")
         df = load_show()
         with st.expander("岗位信息", expanded=True):
             st.write(df)
